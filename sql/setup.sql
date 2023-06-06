@@ -1,3 +1,4 @@
+drop table if exists users_texts;
 drop table if exists users;
 drop table if exists texts;
 
@@ -29,6 +30,19 @@ insert into users (first_name, last_name, username) values
   ('Florenza', 'Martello', 'Flora');
 commit;
 
-select * from users;
-SELECT * from texts;
+CREATE table users_texts (
+  text_id INTEGER,
+  user_id INTEGER,
+  foreign key (text_id) references texts (text_id),
+  foreign key (user_id) references users (user_id)
+);
+
+begin;
+INSERT into users_texts (text_id,user_id) values
+  (1,3),
+  (2,3),
+  (1,1);
+commit;
+
+
 
