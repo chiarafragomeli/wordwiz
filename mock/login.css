@@ -1,3 +1,12 @@
 body{
     background-color:#CBC5BD;
-} 
+    font-family: 'Futura Std', sans-serif;
+    font-family: 'TT Rounds Neue Trial', sans-serif;
+    font-family: 'TT Rounds Neue Trial Variable', sans-serif;
+    font-family: 'TT Rounds Neue Trl Cmd', sans-serif;
+    font-family: 'TT Rounds Neue Trl Cnd', sans-serif;
+}
+h1{
+    color: #5D7466;
+    font-size: x-large;
+}
