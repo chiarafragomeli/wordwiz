@@ -1,2 +1,7 @@
-/*.sql
-.vscode/
+/*session.sql
+/.vscode/
+/.classpath
+/.project
+/.settings/
+/target/
+/bin/
