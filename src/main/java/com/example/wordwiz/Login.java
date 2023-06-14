@@ -2,37 +2,41 @@ package com.example.wordwiz;
 
 import java.io.IOException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import javax.sql.DataSource;
 
+import com.example.wordwiz.dao.User;
 import com.example.wordwiz.svc.LoginSvc;
 
+import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 @WebServlet("/login")
 
 public class Login extends HttpServlet {
-    private static final Logger log = LogManager.getLogger(Login.class);
-    
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String user = request.getParameter("user");
-        log.trace("User is {" + user + "}");
-        
-        String password = request.getParameter("password");
-        LoginSvc svc = new LoginSvc();
-        if (svc.checkUser(user, password)) {
-            request.getRequestDispatcher("dashboard.html").forward(request, response);
-        } else {
-            request.setAttribute("message", "Utente non riconosciuto");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
-    }
+	@Resource(name = "jdbc/wordwiz")
+	private DataSource ds;
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String username = request.getParameter("user");
+		String password = request.getParameter("password");
+		LoginSvc svc = new LoginSvc();
+		User user = svc.getUser(ds, username, password);
+		if (user != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
+			request.getRequestDispatcher("dashboard.html").forward(request, response);
+		} else {
+			request.setAttribute("message", "Utente non riconosciuto");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
+	}
 
 }

@@ -1,8 +1,15 @@
 package com.example.wordwiz.svc;
 
-public class LoginSvc {
-    public boolean checkUser (String user, String password) {
-        return user.equals("Test");
-    }
+import javax.sql.DataSource;
 
+import com.example.wordwiz.dao.User;
+import com.example.wordwiz.dao.UserDao;
+
+public class LoginSvc {
+
+	public User getUser(DataSource ds, String username, String password) {
+		try (UserDao dao = new UserDao(ds)) {
+			return dao.get(username, password);
+		}
+	}
 }
