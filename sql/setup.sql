@@ -20,14 +20,15 @@ create table users(
   user_id serial primary key,
   first_name varchar (20),
   last_name varchar (20),
-  username varchar (20) unique not null
+  username varchar (20) unique not null,
+  password varchar(20) not null
 );
 
 begin;
-insert into users (first_name, last_name, username) values 
-  ('Arianna', 'Muti', 'Ari'),
-  ('Rita', 'Casesa', 'Ri'),
-  ('Florenza', 'Martello', 'Flora');
+insert into users (first_name, last_name, username, password) values 
+  ('Arianna', 'Muti', 'Ari', '1234'),
+  ('Rita', 'Casesa', 'Ri', '5678'),
+  ('Florenza', 'Martello', 'Flora', '9101112');
 commit;
 
 CREATE table users_texts (
