@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -16,11 +18,14 @@
         <div>
             <a href="index.html"><button>Home</button></a>
         </div>
+        <c:if test="${not empty message}">
+        	<p>${message}</p>
+        </c:if>
         <form action="login" method="post">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                 </div>
-                <input name="user" type="text" class="form-control" placeholder="Username" aria-label="Username"
+                <input name="user" value="${param.user}" type="text" class="form-control" placeholder="Username" aria-label="Username"
                     aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
