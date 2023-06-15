@@ -19,6 +19,9 @@ public class LoginSvc {
 	}
 	
 	public boolean saveUser(String username, String password, String email) {
+	    if(username == null || username.isBlank() || password == null || password.isBlank() || email == null || email.isBlank() ) {
+	        return false;
+	    }
 	    try (UserDao dao = new UserDao(ds)) {
             return dao.save(username, password, email);
         }
