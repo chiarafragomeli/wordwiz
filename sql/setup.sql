@@ -18,17 +18,16 @@ commit;
 
 create table users(
   user_id serial primary key,
-  first_name varchar (20),
-  last_name varchar (20),
   username varchar (20) unique not null,
+  email varchar (20) unique not null,
   password varchar(20) not null
 );
 
 begin;
-insert into users (first_name, last_name, username, password) values 
-  ('Arianna', 'Muti', 'Ari', '1234'),
-  ('Rita', 'Casesa', 'Ri', '5678'),
-  ('Florenza', 'Martello', 'Flora', '9101112');
+insert into users (username, email, password) values 
+  ('Ari', 'ari@gmail.com', '1234'),
+  ('Ri', 'ri@gmail.com', '5678'),
+  ('Flora', 'flora@gmail.com', '9101112');
 commit;
 
 CREATE table users_texts (
@@ -37,6 +36,8 @@ CREATE table users_texts (
   foreign key (text_id) references texts (text_id),
   foreign key (user_id) references users (user_id)
 );
+
+
 
 begin;
 INSERT into users_texts (text_id,user_id) values
