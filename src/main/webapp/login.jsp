@@ -7,7 +7,11 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/wordwiz.css">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/futura-std-4?styles=52567,52574,52575,52570,52576');
+    </style>
+    <link href="https://fonts.cdnfonts.com/css/tt-rounds-neue-trial" rel="stylesheet">
 </head>
 
 <body>
@@ -37,5 +41,4 @@
         </form>
     </div>
 </body>
-
 </html>
