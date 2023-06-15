@@ -12,4 +12,10 @@ public class LoginSvc {
 			return dao.get(username, password);
 		}
 	}
+	
+	public User saveUser(DataSource ds, String username, String password, String email) {
+	    try (UserDao dao = new UserDao(ds)) {
+            return dao.save(username, password, email);
+        }
+	}
 }
