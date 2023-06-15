@@ -38,6 +38,20 @@ CREATE table users_texts (
 );
 
 
+CREATE table gramm_class (
+	class_id serial primary key,
+	class_entry varchar (20)
+	);
+	
+CREATE table entries (
+	entry_id serial primary key,
+	entry_word varchar (50),
+	foreign key (class_id) references gramm_class (class_id),
+	description varchar(10000),
+	foreign key (user_id) references users (user_id)
+	);
+
+
 
 begin;
 INSERT into users_texts (text_id,user_id) values
