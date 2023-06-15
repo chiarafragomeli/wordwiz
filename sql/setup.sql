@@ -60,7 +60,7 @@ INSERT into gramm_class (class_entry) values
 	('preposizione'),
 	('congiunzione'),
 	('interiezione');
-
+	
 	
 CREATE table entries (
 	entry_id serial primary key,
