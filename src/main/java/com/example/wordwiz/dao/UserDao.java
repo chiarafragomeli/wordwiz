@@ -15,7 +15,7 @@ public class UserDao implements AutoCloseable {
 
     private static final String SAVE_USERNAME_EMAIL_AND_PASSWORD = """
             INSERT INTO users (username, email, password) VALUES
-            (?, ?, ?);""";
+            (?, ?, ?)""";
 
     private Connection connection;
 

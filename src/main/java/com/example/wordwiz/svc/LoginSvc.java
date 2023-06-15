@@ -18,12 +18,12 @@ public class LoginSvc {
 		}
 	}
 	
-	public boolean saveUser(String username, String password, String email) {
+	public boolean saveUser(String username, String email, String password) {
 	    if(username == null || username.isBlank() || password == null || password.isBlank() || email == null || email.isBlank() ) {
 	        return false;
 	    }
 	    try (UserDao dao = new UserDao(ds)) {
-            return dao.save(username, password, email);
+            return dao.save(username, email, password);
         }
 	}
 }
