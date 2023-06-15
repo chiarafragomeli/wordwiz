@@ -34,7 +34,7 @@ public class Signup extends HttpServlet {
             User user = svc.getUser(username, password);
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            request.setAttribute("message", "Grazie per la tua registrazione" + username);
+            request.setAttribute("message", "Grazie per la tua registrazione " + username);
             request.getRequestDispatcher("dashboard.jsp").forward(request, response);
         } else {
             request.setAttribute("message", "Registrazione fallita");
