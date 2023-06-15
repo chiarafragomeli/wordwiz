@@ -26,6 +26,8 @@
 			</li>
 			<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a>
 			</li>
+			<li class="nav-item"><a class="nav-link" href="userinfo.jsp">Area Personale</a>
+			</li>
 		</ul>
 	</div>
 	</nav>
