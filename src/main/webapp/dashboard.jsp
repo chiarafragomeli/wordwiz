@@ -10,6 +10,9 @@
     <header>
         <h1>Dashboard</h1>
     </header>
+    <c:if test="${not empty message}">
+      <p>${message}</p>
+  </c:if>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
