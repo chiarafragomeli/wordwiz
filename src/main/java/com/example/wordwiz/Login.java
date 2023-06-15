@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
 		if (user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			request.getRequestDispatcher("dashboard.html").forward(request, response);
+			request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 		} else {
 			request.setAttribute("message", "Utente non riconosciuto");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
