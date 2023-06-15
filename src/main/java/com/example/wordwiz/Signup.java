@@ -28,9 +28,10 @@ public class Signup extends HttpServlet {
         String username = request.getParameter("user");
         String email = request.getParameter("email");
         String password = request.getParameter("password");    
-        LoginSvc svc = new LoginSvc();
-        User user = svc.saveUser(ds, username, email, password);
-        if (user != null) {
+        LoginSvc svc = new LoginSvc(ds);
+        
+        if (svc.saveUser(username, email, password)) {
+            User user = svc.getUser(username, password);
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             request.setAttribute("message", "Grazie per la tua registrazione" + username);

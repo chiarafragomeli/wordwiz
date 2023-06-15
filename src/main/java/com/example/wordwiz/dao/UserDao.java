@@ -8,70 +8,64 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 public class UserDao implements AutoCloseable {
-	private static final String GET_BY_USERNAME_AND_PASSWORD = """
-			SELECT user_id, username, email
-			FROM users
-			WHERE username = ? AND password = ?""";
-	private static final String SAVE_USERNAME_EMAIL_AND_PASSWORD = """
-			INSERT INTO users (username, email, password) VALUES
-			(?, ?, ?);""";
+    private static final String GET_BY_USERNAME_AND_PASSWORD = """
+            SELECT user_id, username, email
+            FROM users
+            WHERE username = ? AND password = ?""";
 
-	private Connection connection;
+    private static final String SAVE_USERNAME_EMAIL_AND_PASSWORD = """
+            INSERT INTO users (username, email, password) VALUES
+            (?, ?, ?);""";
 
-	public UserDao(DataSource ds) {
+    private Connection connection;
 
-		try {
-			this.connection = ds.getConnection();
-		} catch (SQLException ex) {
-			throw new IllegalStateException(ex);
-		}
-	}
+    public UserDao(DataSource ds) {
 
-	public User get(String username, String password) {
-		try (PreparedStatement stmt = connection.prepareStatement(GET_BY_USERNAME_AND_PASSWORD)) {
-			stmt.setString(1, username);
-			stmt.setString(2, password);
-			try (ResultSet rs = stmt.executeQuery()) {
-				if (rs.next()) {
+        try {
+            this.connection = ds.getConnection();
+        } catch (SQLException ex) {
+            throw new IllegalStateException(ex);
+        }
+    }
 
-					return new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+    public User get(String username, String password) {
+        try (PreparedStatement stmt = connection.prepareStatement(GET_BY_USERNAME_AND_PASSWORD)) {
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
 
-				} else {
-					return null;
-				}
-			}
-		} catch (SQLException ex) {
-			throw new IllegalStateException(ex);
-		}
-	}
+                    return new User(rs.getInt(1), rs.getString(2), rs.getString(3));
 
-	public User save(String username, String email, String password) {
-		try (PreparedStatement stmt = connection.prepareStatement(SAVE_USERNAME_EMAIL_AND_PASSWORD)) {
-			stmt.setString(1, username);
-			stmt.setString(2, email);
-			stmt.setString(3, password);
+                } else {
+                    return null;
+                }
+            }
+        } catch (SQLException ex) {
+            throw new IllegalStateException(ex);
+        }
+    }
 
-			try (ResultSet rs = stmt.executeQuery()) {
-				if (rs.next()) {
+    public boolean save(String username, String email, String password) {
+        try (PreparedStatement stmt = connection.prepareStatement(SAVE_USERNAME_EMAIL_AND_PASSWORD)) {
+            stmt.setString(1, username);
+            stmt.setString(2, email);
+            stmt.setString(3, password);
 
-					return new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+            int count = stmt.executeUpdate();
+            return count == 1;
+        } catch (SQLException ex) {
+            throw new IllegalStateException(ex);
+        }
+    }
 
-				} else {
-					return null;
-				}
-			}
-		} catch (SQLException ex) {
-			throw new IllegalStateException(ex);
-		}
-	}
+    @Override
+    public void close() {
+        try {
+            connection.close();
+        } catch (SQLException ex) {
+            throw new IllegalStateException(ex);
+        }
 
-	@Override
-	public void close() {
-		try {
-			connection.close();
-		} catch (SQLException ex) {
-			throw new IllegalStateException(ex);
-		}
-
-	}
+    }
 }

@@ -6,14 +6,19 @@ import com.example.wordwiz.dao.User;
 import com.example.wordwiz.dao.UserDao;
 
 public class LoginSvc {
+    private DataSource ds;
 
-	public User getUser(DataSource ds, String username, String password) {
+	public LoginSvc(DataSource ds) {
+        this.ds = ds;
+    }
+
+    public User getUser(String username, String password) {
 		try (UserDao dao = new UserDao(ds)) {
 			return dao.get(username, password);
 		}
 	}
 	
-	public User saveUser(DataSource ds, String username, String password, String email) {
+	public boolean saveUser(String username, String password, String email) {
 	    try (UserDao dao = new UserDao(ds)) {
             return dao.save(username, password, email);
         }
