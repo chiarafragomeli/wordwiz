@@ -17,7 +17,7 @@
                     <h1>Sign up</h1>
                 </header>
                 <div>
-                    <a href="index.html"><button>Home</button></a>
+                    <a href="index.jsp"><button>Home</button></a>
                 </div>
                 <c:if test="${not empty message}">
                     <p>${message}</p>
