@@ -26,4 +26,13 @@ public class LoginSvc {
             return dao.save(username, email, password);
         }
 	}
+	
+	   public boolean updateUser(String email, int id) {
+	        if(email == null || email.isBlank()) {
+	            return false;
+	        }
+	        try (UserDao dao = new UserDao(ds)) {
+	            return dao.update(email, id);
+	        }
+	    }
 }
