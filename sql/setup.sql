@@ -2,6 +2,7 @@ drop table if exists users_texts;
 drop table if exists users;
 drop table if exists texts;
 drop table if exists gramm_class;
+drop table if exists entries;
 
 create TABLE texts (
     text_id serial primary key,
