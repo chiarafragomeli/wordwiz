@@ -1,6 +1,9 @@
 select * from users;
 SELECT * from texts;
 SELECT * from users_texts;
+SELECT author, title 
+from texts
+order BY title;
 
 SELECT user_id, username, email
 FROM users
