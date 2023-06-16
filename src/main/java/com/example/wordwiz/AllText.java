@@ -25,6 +25,8 @@ public class AllText extends HttpServlet {
             throws ServletException, IOException {
         TextSvc svc = new TextSvc(ds);
         List<Text> texts = svc.getAllTexts();
-
+        
+        request.setAttribute("texts", texts);
+        request.getRequestDispatcher("corpus.jsp").forward(request, response);
     }
 }
