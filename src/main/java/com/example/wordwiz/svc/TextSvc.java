@@ -19,7 +19,7 @@ public class TextSvc {
 
         try (TextDao dao = new TextDao(ds)) {
             return dao.getAllSortedByTitle();
-        }
+        }  
     }
 
 }
