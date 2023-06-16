@@ -15,7 +15,7 @@
 	</header>
 	<c:choose>
 		<c:when test="${not empty user}">
-			<p>Ciao ${user}</p>
+			<p>Ciao ${user.username}</p>
 			<a href="dashboard.jsp"><button>Dashboard</button></a>
 			<a href="signup.jsp"><button>Sign up</button></a>
 		</c:when>
