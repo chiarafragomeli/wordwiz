@@ -14,3 +14,11 @@ WHERE username = 'Ari' AND password = '1234';
 	('Pippo', 'pippo@pippoloandia.it', '46987');
 
 INSERT INTO entries (entry_word, description, class_id, user_id) VALUES ('Cane', 'Un cane è un animale.', (SELECT class_id FROM gramm_class WHERE class_entry = 'nome'), (SELECT user_id FROM users WHERE username = 'Ari'));
+
+
+SELECT text_id, fragment, author, title
+            from texts
+            where contains(fragment, 'a');
+
+SELECT *
+FROM texts;
