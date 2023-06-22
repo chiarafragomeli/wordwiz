@@ -16,7 +16,7 @@
     </header>
 	<ul>
 		<c:forEach items="${text}" var="item">
-			<li><a href="searchentry">${item.author}, ${item.title}, ${item.fragment}</a></li>	
+			<li>${item.author}, ${item.title}, ${item.fragment}</li>	
 		</c:forEach>
 	</ul>
 </body>
