@@ -22,7 +22,7 @@
 	</form>
 	<ul>
 		<c:forEach items="${text}" var="item">
-			<li>${item.author}, ${item.title}</li>
+			<li><a href="onetext?id=${item.id}">${item.author}, ${item.title}</a></li>	
 		</c:forEach>
 	</ul>
 </body>

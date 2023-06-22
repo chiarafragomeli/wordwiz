@@ -2,6 +2,7 @@
 package com.example.wordwiz.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,6 +16,11 @@ public class TextDao implements AutoCloseable {
             SELECT text_id, fragment, author, title
             from texts
             order BY title """;
+
+    private static final String GET_ONE_TEXTS = """
+            SELECT text_id, fragment, author, title
+            from texts
+            where text_id = ? """;
 
     private Connection connection;
 
@@ -44,6 +50,24 @@ public class TextDao implements AutoCloseable {
             throw new IllegalStateException(ex);
         }
         return result;
+    }
+
+    public Text getText(int id) {
+
+        try (PreparedStatement stmt = connection.prepareStatement(GET_ONE_TEXTS)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+
+                    Text text = new Text(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                    return text;
+                } else {
+                    return null;
+                }
+            }
+        } catch (SQLException ex) {
+            throw new IllegalStateException(ex);
+        }
     }
 
     @Override

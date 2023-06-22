@@ -22,4 +22,11 @@ public class TextSvc {
         }  
     }
 
+    public Text getText(int id) {
+
+        try (TextDao dao = new TextDao(ds)) {
+            return dao.getText(id);
+        }  
+    }
+    
 }
