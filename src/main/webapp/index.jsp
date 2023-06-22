@@ -24,5 +24,8 @@
 			<a href="signup.jsp"><button>Sign up</button></a>
 		</c:otherwise>
 	</c:choose>
+	<div>
+		<img src="css/background.jpg">
+	</div>
 </body>
 </html>

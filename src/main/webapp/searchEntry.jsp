@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -12,11 +13,18 @@
 </head>
 <body>
 	<header>
-       <h1>Results</h1>
-    </header>
+		<h1>Results</h1>
+
+	</header>
+	<div>
+		<a href="dashboard.jsp"><button>Dashboard</button></a>
+	</div>
+	<div>
+		<a href="corpus.jsp"><button>Corpus</button></a>
+	</div>
 	<ul>
 		<c:forEach items="${text}" var="item">
-			<li>${item.author}, ${item.title}, ${item.fragment}</li>	
+			<li>${item.author},${item.title}, ${item.fragment}</li>
 		</c:forEach>
 	</ul>
 </body>
