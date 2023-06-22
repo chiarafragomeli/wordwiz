@@ -17,10 +17,15 @@ public class TextDao implements AutoCloseable {
             from texts
             order BY title """;
 
-    private static final String GET_ONE_TEXTS = """
+    private static final String GET_ONE_TEXT = """
             SELECT text_id, fragment, author, title
             from texts
             where text_id = ? """;
+
+    private static final String GET_ENTRY = """
+            SELECT text_id, fragment, author, title
+            from texts
+            where fragment like ? """;
 
     private Connection connection;
 
@@ -54,7 +59,7 @@ public class TextDao implements AutoCloseable {
 
     public Text getText(int id) {
 
-        try (PreparedStatement stmt = connection.prepareStatement(GET_ONE_TEXTS)) {
+        try (PreparedStatement stmt = connection.prepareStatement(GET_ONE_TEXT)) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -68,6 +73,25 @@ public class TextDao implements AutoCloseable {
         } catch (SQLException ex) {
             throw new IllegalStateException(ex);
         }
+    }
+
+    public List<Text> getEntry(String entry) {
+        List<Text> result = new ArrayList<>();
+
+        try (PreparedStatement stmt = connection.prepareStatement(GET_ENTRY)) {
+            String pattern = "%" + entry + "%";
+            stmt.setString(1, pattern);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+
+                    Text text = new Text(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                    result.add(text);
+                }
+            }
+        } catch (SQLException ex) {
+            throw new IllegalStateException(ex);
+        }
+        return result;
     }
 
     @Override

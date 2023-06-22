@@ -16,10 +16,16 @@
 	<div>
 		<a href="dashboard.jsp"><button>Dashboard</button></a>
 	</div>
-	<form class="form-inline my-2 my-lg-0">
-		<input class="form-control mr-sm-2" type="search" placeholder="Search">
-		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	</form>
+	
+	 <form action="searchentry" method="get">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                </div>
+                <input name="entry" type="text" class="form-control" placeholder="Search">
+            </div>
+            <div><button>Search</button></div>
+      </form>
+	
 	<ul>
 		<c:forEach items="${text}" var="item">
 			<li><a href="onetext?id=${item.id}">${item.author}, ${item.title}</a></li>	

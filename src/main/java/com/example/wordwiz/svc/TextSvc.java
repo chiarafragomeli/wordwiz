@@ -29,4 +29,11 @@ public class TextSvc {
         }  
     }
     
+    public List<Text> getEntry(String entry) {
+
+        try (TextDao dao = new TextDao(ds)) {
+            return dao.getEntry(entry);
+        }  
+    }
+    
 }
