@@ -25,8 +25,7 @@
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                 </div>
-                <input name="user" value="${param.user}" type="text" class="form-control" placeholder="Username" aria-label="Username"
-                    aria-describedby="basic-addon1">
+                <input name="user" value="${param.user}" type="text" class="form-control" placeholder="Username">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
