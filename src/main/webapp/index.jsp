@@ -25,7 +25,7 @@
 		</c:otherwise>
 	</c:choose>
 	<div>
-		<img src="css/background.jpg">
+		<img src="img/background.jpg">
 	</div>
 </body>
 </html>
