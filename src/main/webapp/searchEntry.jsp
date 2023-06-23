@@ -20,7 +20,7 @@
 		<a href="dashboard.jsp"><button>Dashboard</button></a>
 	</div>
 	<div>
-		<a href="corpus.jsp"><button>Corpus</button></a>
+		<a href="alltext"><button>Corpus</button></a>
 	</div>
 	<ul>
 		<c:forEach items="${text}" var="item">
