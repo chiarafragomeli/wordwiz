@@ -65,7 +65,7 @@ INSERT into gramm_class (class_entry) values
 	
 CREATE table entries (
 	entry_id serial primary key,
-	entry_word varchar (50),
+	entry_word varchar (50) not null,
 	description varchar(10000),
 	class_id integer,
 	user_id integer,

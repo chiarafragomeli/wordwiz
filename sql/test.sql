@@ -22,3 +22,9 @@ SELECT text_id, fragment, author, title
 
 SELECT *
 FROM texts;
+
+INSERT INTO entries (entry_word, description, class_id, user_id)
+VALUES ('Prova', 'prova', 4, 5);
+
+SELECT *
+FROM entries;

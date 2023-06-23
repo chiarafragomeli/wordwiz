@@ -14,7 +14,6 @@
 <body>
 	<header>
 		<h1>Results</h1>
-
 	</header>
 	<div>
 		<a href="dashboard.jsp"><button>Dashboard</button></a>

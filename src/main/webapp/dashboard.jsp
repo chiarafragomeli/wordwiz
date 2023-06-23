@@ -18,7 +18,7 @@
 	</c:if>
 	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item"><a class="nav-link" href="newEntry.html">New
+			<li class="nav-item"><a class="nav-link" href="newEntry.jsp">New
 					entry</a></li>
 			<li class="nav-item"><a class="nav-link" href="alltext">Corpus</a>
 			</li>
