@@ -11,7 +11,7 @@
 
 <body>
 	<header>
-		<h1>New entry</h1>
+		<h1>Inserimento lemma</h1>
 	</header>
 	<div>
 		<a href="dashboard.jsp"><button>Dashboard</button></a>
