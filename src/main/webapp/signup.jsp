@@ -12,33 +12,33 @@
         </head>
 
         <body>
-            <div class="container-fluid">
+            <div class="login-box">
                 <header>
-                    <h1>Sign up</h1>
+                    <h2>Sign up</h2>
                 </header>
-                <div>
-                    <a href="index.jsp"><button>Home</button></a>
+                <div class="frame">
+                    <a href="index.jsp"><button class="custom-btn btn-5">Home</button></a>
                 </div>
                 <c:if test="${not empty message}">
                     <p>${message}</p>
                 </c:if>
                 <form action="signup" method="post">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                        </div>
-                        <input name="user" value="${param.user}" type="text" class="form-control" placeholder="Username">
+                    <div class="user-box">
+                        <input name="user" value="${param.user}" type="text" placeholder="Username">
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                        </div>
-                        <input name="email" value="${param.email}" type="text" class="form-control" placeholder="Email">
+                    <div class= "user-box">
+                        <input name="email" value="${param.email}" type="text" placeholder="Email">
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                        </div>
-                        <input name ="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <div class="user-box">
+                        <input name ="password" type="password" id="inputPassword" placeholder="Password">
                     </div>
-                    <div><button>Signup</button></div>
+                    <a href="dashboard.jsp">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Sign up
+                    </a>
                 </form>
             </div>
         </body>

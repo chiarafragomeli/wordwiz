@@ -38,3 +38,433 @@ h1{
     color: #5D7466;
     font-size: x-large;
 }
+
+.frame {
+    width: 90%;
+    margin: 40px auto;
+    text-align: left;
+  }
+  
+button {
+    margin: 20px;
+  }
+  
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+
+  .btn-5 {
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    background: #CBC5BD(255,27,0);
+  background: linear-gradient(0deg, #CBC5BD(255,27,0,1) 0%, #CBC5BD(251,75,2,1) 100%);
+  }
+  .btn-5:hover {
+    color: #CBC5BD;
+    background: transparent;
+     box-shadow:none;
+  }
+  .btn-5:before,
+  .btn-5:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #CBC5BD;
+    box-shadow:
+     -1px -1px 5px 0px #fff,
+     7px 7px 20px 0px #0003,
+     4px 4px 5px 0px #0002;
+    transition:400ms ease all;
+  }
+  .btn-5:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .btn-5:hover:before,
+  .btn-5:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+  
+
+html {
+    height: 100%;
+  }
+  body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#CBC5BD,#5D7466);
+  }
+  
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #5D7466(64, 75, 57, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+  }
+  
+  .login-box h2 {
+    margin: 0 0 30px;
+    font-family: 'Futura Std';
+    padding: 0;
+    color:  #334138;
+    text-align: center;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #334138;
+    font-size: 12px;
+  }
+  
+  .login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color:  #334138;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+  .login-box a:hover {
+    background:  #334138;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px  #334138,
+                0 0 25px  #334138,
+                0 0 50px  #334138,
+                0 0 100px  #334138;
+  }
+  
+  .login-box a span {
+    position: absolute;
+    display: block;
+  }
+  
+  .login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent,  #334138);
+    animation: btn-anim1 1s linear infinite;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent,  #334138);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+  }
+  
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent,  #334138);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+  }
+  
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent,  #334138);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+  }
+  
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+  
+#dash{
+    color: #5d7466;
+    font-size:80px;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 100;
+  }
+  
+  .myButton {
+    background-color: #ffffff;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+    border-radius: 30px;
+    border: 1px solid #282c37;
+    display: inline-block;
+    cursor: pointer;
+    color: #282c37;
+    font-size: 15px;
+    padding: 16px 31px;
+    text-decoration: none;
+    margin: 10px 0px 0px 0px;
+    width: 75%;
+    text-align: center;
+    -webkit-transition: width 0.5s, background 1s, border-radius 0.5s ease-in-out;
+    -moz-transition: width 0.5s, background 1s, border-radius 0.5s ease-in-out;
+    -o-transition: width 0.5s, background 1s, border-radius 0.5s ease-in-out;
+    transition: width 0.5s, background 1s, border-radius 0.5s ease-in-out;
+  }
+  
+  .myButton:hover {
+    background-color: #5D7466;
+    color: #fff;
+    border-radius: 30px;
+    border: 1px solid #5D7466;
+    width: 80%;
+  }
+  
+  .myButton:active {
+    position: relative;
+    top: 1px;
+    color: #ffffff;
+    border-radius: 3px;
+  }
+  
+  .button-container {
+    padding: 100px 0;
+    text-align: center;
+  }
+  
+  .CADSbutton {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid #4f4f4f;
+    border-radius: 0px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0px;
+    color: #282c37;
+    width: 30%;
+  }
+  .CADSbutton:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all, 0.5s 0.1s, cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+  .CADSbutton:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #5D7466;
+    border-radius: 50%;
+    display: block;
+    transition: all, 0.5s 0.1s, cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+  .CADSbutton:hover {
+    color: #ffffff;
+    border: 1px solid #5D7466;
+  }
+  .CADSbutton:hover:before {
+    top: -35%;
+    background-color: #5D7466;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+  .CADSbutton:hover:after {
+    top: -45%;
+    background-color: #5D7466;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+
+
+.title{
+    font-family: 'Futura Std';
+    font-size: 50px;
+    text-align: center;
+    text-decoration:underline;
+    text-underline-offset: 10px;
+    
+}
+
+
+.form-lemma {
+    max-width: 380px;
+    padding: 15px 45px 10px;
+    margin-bottom: 20px;
+    background-color: #d8dfd8;
+    border: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+    border-radius: 20px 20px 20px 20px;
+}
+
+
+.lemma {
+    max-width: 400px;
+    padding: 15px 35px 10px;
+    margin: 0 auto;
+    background-color: #ebe7e3;
+    border: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.lemma-group1{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    
+}
+
+.lemma-group2{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    
+}
+
+input[type="text"] {
+    margin-bottom: 1px;
+    border-bottom-left-radius: 0;
+}
+
+input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#lemmaFormGrammCat {
+    max-block-size: 380px;
+    padding: 15px 7px 10px;
+    margin-bottom: 20px;
+    background-color: #d8dfd8;
+    
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.form-notes {
+    max-width: 380px;
+    padding: 15px 40px 45px;
+    margin: 0 auto;
+    background-color: #d8dfd8;
+    
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 20px 20px 20px 20px;
+}
+
