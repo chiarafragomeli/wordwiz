@@ -11,20 +11,21 @@
 
 <body>
 	<header>
-		<h1>Inserimento lemma</h1>
+		<h1 class="title">Inserimento lemma</h1>
 	</header>
 	<div>
 		<a href="dashboard.jsp"><button>Dashboard</button></a>
 	</div>
 	<p>${message}</p>
-	<form action="newentry" method="get">
-		<div class="lemma-group">
-			<label>Lemma</label> <input name='entry' type="text"
-				class="form-lemma" id="lemmaForm">
+	<form action="newentry" method="get" class="lemma">
+		<div class="lemma-group1">
+			<input name='entry' type="text"
+				class="form-lemma" id="lemmaForm" placeholder="Inserisci lemma">
 		</div>
-		<div class="lemma-group">
-			<label>Grammatical category</label> <select class="form-lemma"
+		<div class="lemma-group2">
+			<select class="form-lemma"
 				id="lemmaFormGrammCat" name='grammarClass'>
+				<option value="" disabled selected>Grammatical category</option>
 				<option value='2'>Aggettivo</option>
 				<option value='6'>Articolo</option>
 				<option value='4'>Avverbio</option>
@@ -37,8 +38,7 @@
 			</select>
 		</div>
 		<div class="lemma-group">
-			<label>Note</label>
-			<textarea class="form-lemma" id="lemmaFormNote" rows="5" name='note'></textarea>
+			<textarea class="form-notes" id="lemmaFormNote" rows="5" name='note' placeholder="Inserisci note..."></textarea>
 		</div>
 		<div>
 			<button>Inserisci</button>
