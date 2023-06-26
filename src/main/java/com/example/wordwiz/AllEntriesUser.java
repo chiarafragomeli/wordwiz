@@ -1,13 +1,13 @@
 package com.example.wordwiz;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
 import com.example.wordwiz.dao.Entry;
 import com.example.wordwiz.dao.User;
 import com.example.wordwiz.svc.EntrySvc;
-import com.example.wordwiz.svc.LoginSvc;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -27,17 +27,14 @@ public class AllEntriesUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("user");
-        String password = request.getParameter("password");
-        LoginSvc svc = new LoginSvc(ds);
-        User user = svc.getUser(username, password);
+        EntrySvc svcEntry = new EntrySvc(ds);
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
         
         if (user != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-//          List <class> name = chimata al servizio che chiama il Dao
-//            session.setAttribute("grammaticalClasses", grammaticalClasses);
-            request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+            List<Entry> allEntries = svcEntry.getAllEntriesUser(user.getId());
+            request.setAttribute("entries", allEntries);
+            request.getRequestDispatcher("allEntriesUser.jsp").forward(request, response);
         } else {
             request.setAttribute("message", "Utente non riconosciuto");
             request.getRequestDispatcher("login.jsp").forward(request, response);

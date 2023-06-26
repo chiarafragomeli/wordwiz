@@ -28,3 +28,7 @@ VALUES ('Prova', 'prova', 4, 5);
 
 SELECT *
 FROM entries;
+
+SELECT entry_id, entry_word, description, class_entry
+FROM entries e JOIN gramm_class gc USING(class_id) 
+WHERE user_id = '1';

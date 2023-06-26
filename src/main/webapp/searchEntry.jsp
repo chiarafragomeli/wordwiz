@@ -23,7 +23,7 @@
 	</div>
 	<ul>
 		<c:forEach items="${text}" var="item">
-			<li>${item.author},${item.title}, ${item.fragment}</li>
+			<li>${item.author}, ${item.title}, ${item.fragment}</li>
 		</c:forEach>
 	</ul>
 </body>
