@@ -10,26 +10,27 @@
 </head>
 
 <body>
-	<header>
-		<h1>Dashboard</h1>
-	</header>
+<div class="container">
+	<h1 id="dash">Dashboard</h1>
 	<c:if test="${not empty message}">
 		<p>${message}</p>
 	</c:if>
-	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item"><a class="nav-link" href="newEntry.jsp">New
-					entry</a></li>
-			<li class="nav-item"><a class="nav-link" href="alltext">Corpus</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="index.jsp">Home</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="userinfo.jsp">Area Personale</a>
-			</li>
-		</ul>
-	</div>
-	</nav>
+  <div align="center">
+	<a class="myButton" href="newEntry.jsp">Inserisci una nuova voce</a> 
+	
+	<a class="myButton" href="allEntriesUser.jsp">Il mio glossario</a> 
+	
+	<a class="myButton" href="corpus.jsp">Corpus</a> 
+	
+	<a class="myButton" href="userinfo.jsp">Area personale</a>
+   
+  </div>
+	
+	<div class="button-container">
+	<a href="index.jsp" class="CADSbutton">Home</a>
+	<a href="logout.jsp" class="CADSbutton">Esci</a>
+  </div>
 </body>
 </html>
+
+
