@@ -14,15 +14,17 @@
 </head>
 
 <body>
-	<div class="container-fluid">
+	<div class="login-box">
+		<div>
+			<a href="index.jsp"><button class="custom-btn btn-5">Home</button></a>
+		</div>
 		<header>
-			<h1>Logout</h1>
+			<h2>Logout</h2>
 		</header>
 		<c:if test="${not empty message}">
 			<p>${message}</p>
 		</c:if>
-		<div>
-			<a href="index.jsp"><button>Home</button></a>
-		</div>
+		
+	</div>
 </body>
 </html>

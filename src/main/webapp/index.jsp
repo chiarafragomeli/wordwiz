@@ -9,23 +9,26 @@
 <link rel="stylesheet" href="css/wordwiz.css">
 </head>
 
-<body>
+<body> 
+<div class="login-box">
 	<header>
-		<h1>WordWiz</h1>
+		<h2>WordWiz</h2>
 	</header>
 	<c:choose>
 		<c:when test="${not empty user}">
 			<p>Ciao ${user.username}</p>
-			<a href="dashboard.jsp"><button>Dashboard</button></a>
-			<a href="signup.jsp"><button>Sign up</button></a>
+			<a href="dashboard.jsp"><button class="custom-btn btn-5">Dashboard</button></a>
+			<a href="signup.jsp"><button class="custom-btn btn-5">Sign up</button></a>
 		</c:when>
 		<c:otherwise>
-			<a href="login.jsp"><button>Login</button></a>
-			<a href="signup.jsp"><button>Sign up</button></a>
+			<a href="login.jsp"><button class="custom-btn btn-5">Login</button></a>
+			<a href="signup.jsp"><button class="custom-btn btn-5">Sign up</button></a>
 		</c:otherwise>
 	</c:choose>
+</div>
+</body>
 	<div>
 		<img src="img/background.jpg">
-	</div>
-</body>
+    </div>
+
 </html>
