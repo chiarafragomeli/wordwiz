@@ -32,7 +32,16 @@ public class TextSvc {
     public List<Text> getEntry(String entry) {
 
         try (TextDao dao = new TextDao(ds)) {
-            return dao.getEntry(entry);
+        	List<Text> texts = dao.getEntry(entry);
+        	for (Text text : texts) {
+        		String fragment = text.getFragment();
+        		int pos = fragment.indexOf(entry);
+        		int begin = (pos < 50) ? 0 : (pos - 50);
+        		int end = (pos + 50 < fragment.length()) ? (pos + 50) : (fragment.length() -1);
+        		String sub = fragment.substring(begin, end);
+        		text.setFragment("..." + sub + "...");
+        	}
+        	return texts;
         }  
     }
     
