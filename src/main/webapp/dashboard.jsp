@@ -5,7 +5,7 @@
 <html>
 
 <head>
-<title>WordWiz</title>
+<title>Dashboard</title>
 <link rel="stylesheet" href="css/wordwiz.css">
 </head>
 
@@ -20,7 +20,7 @@
 	
 	<a class="myButton" href="allEntriesUser.jsp">Il mio glossario</a> 
 	
-	<a class="myButton" href="corpus.jsp">Corpus</a> 
+	<a class="myButton" href="alltext">Corpus</a> 
 	
 	<a class="myButton" href="userinfo.jsp">Area personale</a>
    
@@ -28,7 +28,7 @@
 	
 	<div class="button-container">
 	<a href="index.jsp" class="CADSbutton">Home</a>
-	<a href="logout.jsp" class="CADSbutton">Esci</a>
+	<a href="logout" class="CADSbutton">Esci</a>
   </div>
 </body>
 </html>
