@@ -15,25 +15,27 @@
 
 <body>
 	<div>
-		<a href="dashboard.jsp"><button>Dashboard</button></a>
+		<a href="dashboard.jsp"><button class="UIbutton" role="button">Dashboard</button></a>
 	</div>
 	<header>
-		<h1>Area Personale</h1>
+		<h1 class="titleuserinfo">Area Personale</h1>
 	</header>
 	<c:if test="${not empty message}">
         	<p>${message}</p>
         </c:if>
-	<ul>
-		<li>Username: ${user.username}</li>
-		<li>Email: ${user.email}</li>
-	</ul>
+	<div class="UIlist">
+		<p>Username: ${user.username}</p>
+		<p>Email: ${user.email}</p>
+	</div>
 <form action="userinfo" method="get">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                 </div>
+				<div class="chemail">
                 <input name="newEmail" type="text" class="form-control" placeholder="Nuova email">
-            </div>
-            <div><button>Modifica l'email</button></div>
+				</div>
+			</div>
+            <div align="center"><button class="UIbutton" role="button">Modifica l'email</button></div>
         </form>
 </body>
 </html>
