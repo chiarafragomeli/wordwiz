@@ -34,8 +34,90 @@ body{
     font-family: 'Futura Std', sans-serif;
 }
 
-#dash{
+h1{
     color: #5D7466;
+    font-size: x-large;
+}
+
+#dash{
+    color: #5d7466;
     font-size:80px;
     text-align: center;
+}
+
+.title{
+    font-family: 'Futura Std';
+    font-size: 50px;
+    text-align: center;
+    text-decoration:underline;
+    text-underline-offset: 10px;
+    
+}
+
+
+.form-lemma {
+    max-width: 380px;
+    padding: 15px 45px 10px;
+    margin-bottom: 20px;
+    background-color: #d8dfd8;
+    border: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+    border-radius: 20px 20px 20px 20px;
+}
+
+
+.lemma {
+    max-width: 400px;
+    padding: 15px 35px 10px;
+    margin: 0 auto;
+    background-color: #ebe7e3;
+    border: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.lemma-group1{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    
+}
+
+.lemma-group2{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    
+}
+
+input[type="text"] {
+    margin-bottom: 1px;
+    border-bottom-left-radius: 0;
+}
+
+input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#lemmaFormGrammCat {
+    max-block-size: 380px;
+    padding: 15px 7px 10px;
+    margin-bottom: 20px;
+    background-color: #d8dfd8;
+    
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.form-notes {
+    max-width: 380px;
+    padding: 15px 40px 45px;
+    margin: 0 auto;
+    background-color: #d8dfd8;
+    
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 20px 20px 20px 20px;
 }
