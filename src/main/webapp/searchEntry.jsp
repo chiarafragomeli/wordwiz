@@ -13,7 +13,7 @@
 </head>
 <body>
 	<header>
-		<h1>Results</h1>
+		<h1>Risultati</h1>
 	</header>
 	<div>
 		<a href="dashboard.jsp"><button>Dashboard</button></a>
@@ -21,10 +21,32 @@
 	<div>
 		<a href="alltext"><button>Corpus</button></a>
 	</div>
-	<ul>
-		<c:forEach items="${text}" var="item">
-			<li>${item.author}, ${item.title}, ${item.fragment}</li>
-		</c:forEach>
-	</ul>
+	<div class="container">
+  <table class="table table-fixed">
+    <thead>
+      <tr>
+        <th class="col-xs-3">Autrice</th>
+        <th class="col-xs-3">Titolo</th>
+        <th class="col-xs-6">Testo</th>
+      </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${text}" var="item">
+      <tr>
+        <td class="col-xs-3">${item.author}</td>
+        <td class="col-xs-3">${item.title}</td>
+        <td class="col-xs-6">${item.fragment}</td>
+      </tr>
+      </c:forEach>
+    </tbody>
+  </table>
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
