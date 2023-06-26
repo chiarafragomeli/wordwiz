@@ -1,8 +1,9 @@
+drop table if exists entries;
 drop table if exists users_texts;
 drop table if exists users;
 drop table if exists texts;
 drop table if exists gramm_class;
-drop table if exists entries;
+
 
 create TABLE texts (
     text_id serial primary key,
@@ -47,11 +48,11 @@ INSERT into users_texts (text_id,user_id) values
 
 CREATE table gramm_class (
 	class_id serial primary key,
-	class_entry varchar (20)
+	name varchar (20)
 	);
 
 
-INSERT into gramm_class (class_entry) values
+INSERT into gramm_class (name) values
 	('nome'),
 	('aggettivo'),
 	('verbo'),

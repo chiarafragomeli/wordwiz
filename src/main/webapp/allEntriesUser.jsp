@@ -12,12 +12,13 @@
 	<header>
 		<h1>I miei lemmi</h1>
 	</header>
+	<p>Classi: ${grammClasses}</p>
 	<div>
 		<a href="dashboard.jsp"><button>Dashboard</button></a>
 	</div>
 	<ul>
-		<c:forEach items="${entry}" var="item">
-			<li><a href="allentriesuser?id=${item.entryId}">${item.word}, ${item.classId}, ${item.description}</a></li>	
+		<c:forEach items="${entries}" var="item">
+			<li><a href="allentriesuser?id=${item.id}"></a>${item.word}, ${grammClasses[item.classId]}, ${item.description}</li>	
 		</c:forEach>
 	</ul>
 </body>
