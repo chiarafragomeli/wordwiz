@@ -20,6 +20,7 @@
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 			<li class="nav-item"><a class="nav-link" href="newEntry.jsp">New
 					entry</a></li>
+			<li class="nav-item"><a class="nav-link" href="allEntriesUser.jsp">My entries</a></li>
 			<li class="nav-item"><a class="nav-link" href="alltext">Corpus</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
