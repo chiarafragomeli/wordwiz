@@ -31,14 +31,13 @@ public class Login extends HttpServlet {
 		
 //		check for superUser
 		ServletContext sc = getServletContext();
-		String admin = (String) sc.getAttribute("superUser");
-		String adminPassword = (String) sc.getAttribute("superUserPassword");
+		String admin = (String) sc.getInitParameter("superUser");
+		String adminPassword = (String) sc.getInitParameter("superUserPassword");
 		if (username.equals(admin) && password.equals(adminPassword)) {
-		    User user = new User(0, admin, (String) sc.getAttribute("superUserEmail"));
+		    User user = new User(0, admin, (String) sc.getInitParameter("superUserEmail"));
 		    HttpSession session = request.getSession();
             session.setAttribute("user", user);
-//            inserire nei puntini la pagina dell'amministratore
-            request.getRequestDispatcher("...").forward(request, response);
+            request.getRequestDispatcher("adminDashboard.jsp").forward(request, response);
             return;
 		}
 		
