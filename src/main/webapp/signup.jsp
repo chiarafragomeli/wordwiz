@@ -32,13 +32,7 @@
                     <div class="user-box">
                         <input name ="password" type="password" id="inputPassword" placeholder="Password">
                     </div>
-                    <a href="dashboard.jsp">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        Sign up
-                    </a>
+                    <button>Signup</button>
                 </form>
             </div>
         </body>

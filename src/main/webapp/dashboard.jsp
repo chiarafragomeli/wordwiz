@@ -10,26 +10,25 @@
 </head>
 
 <body>
-<div class="container">
-	<h1 id="dash">Dashboard</h1>
-	<c:if test="${not empty message}">
-		<p>${message}</p>
-	</c:if>
-  <div align="center">
-	<a class="myButton" href="newEntry.jsp">Inserisci una nuova voce</a> 
-	
-	<a class="myButton" href="allEntriesUser.jsp">Il mio glossario</a> 
-	
-	<a class="myButton" href="alltext">Corpus</a> 
-	
-	<a class="myButton" href="userinfo">Area personale</a>
-   
-  </div>
-	
-	<div class="button-container">
-	<a href="index.jsp" class="CADSbutton">Home</a>
-	<a href="logout" class="CADSbutton">Esci</a>
-  </div>
+	<div class="container">
+		<h1 id="dash">Dashboard</h1>
+		<c:if test="${not empty message}">
+			<p>${message}</p>
+		</c:if>
+		<div align="center">
+			<a class="myButton" href="newEntry.jsp">Inserisci una nuova voce</a>
+
+			<a class="myButton" href="allEntriesUser.jsp">Il mio glossario</a>
+			<a class="myButton" href="alltext">Corpus</a>
+			<a class="myButton" href="userinfo.jsp">Area personale</a>
+
+		</div>
+
+		<div class="button-container">
+			<a href="index.jsp" class="CADSbutton">Home</a>
+			<a href="logout" class="CADSbutton">Esci</a>
+		</div>
+	</div>
 </body>
 </html>
 

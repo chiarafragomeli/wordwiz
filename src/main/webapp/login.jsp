@@ -28,13 +28,7 @@
             <div class="user-box">
                 <input name="password" type="password" id="inputPassword" placeholder="Password">
             </div>
-            <a href="dashboard.jsp">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Submit
-              </a>
+            <button>Login</button>
         </form>
     </div>
 </body>
