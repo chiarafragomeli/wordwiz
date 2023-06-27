@@ -15,7 +15,7 @@
 	</div>
 <ul>
 		<c:forEach items="${user}" var="item">
-			<li><a href="allUser?id=${item.id}">${item.username}, ${item.email}</a></li>	
+			<li>${item.username}, ${item.email}</li>
 		</c:forEach>
 	</ul>
 
