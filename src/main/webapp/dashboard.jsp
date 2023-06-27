@@ -22,7 +22,7 @@
 	
 	<a class="myButton" href="alltext">Corpus</a> 
 	
-	<a class="myButton" href="userinfo.jsp">Area personale</a>
+	<a class="myButton" href="userinfo">Area personale</a>
    
   </div>
 	
