@@ -5,18 +5,19 @@
 <html>
 
 <head>
-<title>Dashboard</title>
+<title>Utenti</title>
 <link rel="stylesheet" href="css/wordwiz.css">
 </head>
 
 <body>
-	<div class="container">
-		<h1 id="dash">Dashboard</h1>
-<a class="myButton" href="allUser">Utenti</a>
-
-		<div class="button-container">
-			<a href="logout" class="CADSbutton">Esci</a>
-		</div>
+<div>
+		<a href="adminDashboard.jsp"><button>Dashboard</button></a>
 	</div>
+<ul>
+		<c:forEach items="${user}" var="item">
+			<li><a href="allUser?id=${item.id}">${item.username}, ${item.email}</a></li>	
+		</c:forEach>
+	</ul>
+
 </body>
 </html>
