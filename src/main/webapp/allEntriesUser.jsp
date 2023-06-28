@@ -12,7 +12,6 @@
 	<header>
 		<h1>I miei lemmi</h1>
 	</header>
-	<p>Classi: ${grammClasses}</p>
 	<div>
 		<a href="dashboard.jsp"><button>Dashboard</button></a>
 	</div>

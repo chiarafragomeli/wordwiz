@@ -18,7 +18,7 @@
 		<div align="center">
 			<a class="myButton" href="newEntry.jsp">Inserisci una nuova voce</a>
 
-			<a class="myButton" href="allEntriesUser.jsp">Il mio glossario</a>
+			<a class="myButton" href="allentriesuser">Il mio glossario</a>
 			<a class="myButton" href="alltext">Corpus</a>
 			<a class="myButton" href="userinfo.jsp">Area personale</a>
 

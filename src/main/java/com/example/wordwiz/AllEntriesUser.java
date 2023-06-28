@@ -19,7 +19,6 @@ import jakarta.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 @WebServlet("/allentriesuser")
-
 public class AllEntriesUser extends HttpServlet {
     @Resource(name = "jdbc/wordwiz")
     private DataSource ds;
