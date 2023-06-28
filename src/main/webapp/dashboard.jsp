@@ -21,6 +21,7 @@
 			<a class="myButton" href="allentriesuser">Il mio glossario</a>
 			<a class="myButton" href="alltext">Corpus</a>
 			<a class="myButton" href="userinfo.jsp">Area personale</a>
+			<a class="myButton" href="contactForm.jsp">Contatta l'amministratore</a>
 
 		</div>
 
