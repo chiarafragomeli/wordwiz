@@ -6,6 +6,8 @@ import javax.sql.DataSource;
 
 import com.example.wordwiz.dao.User;
 import com.example.wordwiz.dao.AdminDao;
+import com.example.wordwiz.dao.Entry;
+import com.example.wordwiz.dao.EntryDao;
 
 public class AdminSvc {
 
@@ -23,7 +25,13 @@ public class AdminSvc {
         }  
     }
 
-       
+    public List<Entry> getAllEntriesAdmin() {
+        try (AdminDao dao = new AdminDao(ds)) {
+            return dao.getAllEntriesAdmin();
+        } catch (Exception e) {
+            return null;
+        }
+    }       
 }
 
 

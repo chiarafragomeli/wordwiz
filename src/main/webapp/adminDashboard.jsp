@@ -14,7 +14,7 @@
 		<h1 id="dash">Dashboard</h1>
 <a class="myButton" href="allUser">Utenti</a>
 <a class="myButton" href="alltextadmin">Testi</a>
-<a class="myButton" href="...">Voci</a>
+<a class="myButton" href="allentriesadmin">Voci</a>
 <a class="myButton" href="...">Messaggi</a>
 
 		<div class="button-container">

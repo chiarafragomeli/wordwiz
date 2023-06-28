@@ -25,7 +25,6 @@ public class EntrySvc {
         }
     }
 
-    // aggiungere try catch
     public List<Entry> getAllEntriesUser(int userId) {
         try (EntryDao dao = new EntryDao(ds)) {
             return dao.getAllEntriesUser(userId);
