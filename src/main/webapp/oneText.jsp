@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/wordwiz.css">
 </head>
 <body>
-	<p>${text}</p>
+	<p>${text.author}: ${text.fragment}</p>
 </body>
 </html>
 
