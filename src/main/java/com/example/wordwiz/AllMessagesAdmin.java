@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import com.example.wordwiz.dao.Entry;
-import com.example.wordwiz.svc.AdminSvc;
+import com.example.wordwiz.dao.Message;
+import com.example.wordwiz.svc.MessageSvc;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -16,18 +16,18 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-@WebServlet("/allentriesadmin")
-public class AllEntriesAdmin extends HttpServlet {
+@WebServlet("/allmessagesadmin")
+public class AllMessagesAdmin extends HttpServlet {
     @Resource(name = "jdbc/wordwiz")
     private DataSource ds;
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AdminSvc svc = new AdminSvc(ds);       
-            List<Entry> allEntries = svc.getAllEntriesAdmin();
-            
-            request.setAttribute("entries", allEntries);
-            request.getRequestDispatcher("allEntriesAdmin.jsp").forward(request, response);     
+        MessageSvc svc = new MessageSvc(ds);
+        List<Message> messages = svc.getAllMessages();
+        
+        request.setAttribute("messages", messages);
+        request.getRequestDispatcher("allMessagesAdmin.jsp").forward(request, response);
     }
 
 }

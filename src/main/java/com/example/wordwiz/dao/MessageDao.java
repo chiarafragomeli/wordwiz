@@ -18,7 +18,7 @@ public class MessageDao implements AutoCloseable {
             VALUES (?, ?, 1) """;
 
     private static final String GET_ALL_MESSAGES_ORDERED = """
-            SELECT message, time, sender_id
+            SELECT message_id, message, time, sender_id
             FROM messages
             ORDER BY time """;
 

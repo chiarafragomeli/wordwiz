@@ -15,7 +15,7 @@
 <a class="myButton" href="allUser">Utenti</a>
 <a class="myButton" href="alltextadmin">Testi</a>
 <a class="myButton" href="allentriesadmin">Voci</a>
-<a class="myButton" href="...">Messaggi</a>
+<a class="myButton" href="allmessagesadmin">Messaggi</a>
 
 		<div class="button-container">
 			<a href="logout" class="CADSbutton">Esci</a>
