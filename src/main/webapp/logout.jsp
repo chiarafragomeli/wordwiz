@@ -5,26 +5,23 @@
 <html>
 
 <head>
-<title>Login</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
+<title>Logout</title>
 <link rel="stylesheet" href="css/wordwiz.css">
 </head>
 
-<body>
+<body class="indexBody">
 	<div class="login-box">
-		<div>
-			<a href="index.jsp"><button class="custom-btn btn-5">Home</button></a>
+		<div class="indexHeader">
+			<img src="img/logowithoutbackground.png" width="500">
 		</div>
-		<header>
-			<h2>Logout</h2>
-		</header>
+		<div class="motto">Create your own dictionary</div>
 		<c:if test="${not empty message}">
-			<p>${message}</p>
+			<p class="indexMessage">${message}</p>
 		</c:if>
-		
+		<div class="button-container-home">
+		<a href="index.jsp"><button class="CADSbutton">HOME</button></a>
 	</div>
+	</div>
+	
 </body>
 </html>

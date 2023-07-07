@@ -8,18 +8,28 @@
   background-size: auto;
 }
 
+.dashboardBody {
+  background-color: #CBC5BD;
+  background-image: url(../img/backgroundDev.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: auto;
+}
+
 .indexMessage {
   padding-top: 30px;
   font-size: larger;
-  font-family: sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: rgb(28, 27, 25);
 }
 
-.motto{
+.motto {
   font-size: larger;
-  font-family: sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   color: rgb(28, 27, 25);
-  text-align:end;
+  text-align: end;
   padding-right: 50px;
 }
 
@@ -42,10 +52,11 @@
   border-radius: 10px;
 }
 
-input[type=text], input[type=password] {
+input[type=text],
+input[type=password] {
   position: relative;
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background: #fff7ed00;
   width: 75%;
   border: 0;
@@ -54,20 +65,17 @@ input[type=text], input[type=password] {
   margin: 10px;
 }
 
-
-#dash {
-  color: #5d7466;
-  font-size: 80px;
-  text-align: center;
-}
-
-.container {
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
-  text-align: center;
-  font-family: sans-serif;
-  font-weight: 100;
+.container-dashboard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  padding: 100px;
+  transform: translate(-50%, -50%);
+  background: #cbc5bda6;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 }
 
 .myButton {
@@ -78,9 +86,10 @@ input[type=text], input[type=password] {
   color: #2a3235;
   box-shadow: 2px 2px 10px #242c2f;
   font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding: 15px 30px;
   margin: 10px 0px 0px 0px;
-  width: 45%;
+  width: 50%;
   text-align: center;
   transition: width 0.5s, background 1s, border-radius 0.5s ease-in-out;
 }
@@ -90,7 +99,7 @@ input[type=text], input[type=password] {
   color: #CBC5BD;
   border-radius: 20px;
   border: #5d746600;
-  width: 40%;
+  width: 45%;
 }
 
 .myButton:active {
@@ -106,13 +115,15 @@ input[type=text], input[type=password] {
   text-align: center;
 }
 
-.button-container{
+.button-container {
   padding-top: 20px;
 }
 
 .CADSbutton {
   background-color: #CBC5BD;
+  text-align: center;
   font-size: normal;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   display: inline-block;
   padding: 12px 24px;
   border: #4f4f4f00;
@@ -122,7 +133,7 @@ input[type=text], input[type=password] {
   overflow: hidden;
   margin: 0px;
   color: #3B474B;
-  width: 20%;
+  width: 25%;
   box-shadow: 2px 2px 6px #242c2f;
 }
 
@@ -137,68 +148,45 @@ input[type=text], input[type=password] {
   box-shadow: 2px 2px 20px #242c2f;
 }
 
-.title {
-  font-family: 'Futura Std';
+.entry-title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 50px;
+  font-weight: bold;
+  color: #3B474B;
   text-align: center;
-  text-decoration: underline;
-  text-underline-offset: 10px;
-
+  background-color: #efe8df;
 }
-
 
 .form-lemma {
-  max-width: 380px;
-  padding: 15px 45px 10px;
-  margin-bottom: 20px;
-  background-color: #d8dfd8;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  text-align: center;
-  border-radius: 20px 20px 20px 20px;
-}
-
-
-.lemma {
-  max-width: 400px;
-  padding: 15px 35px 10px;
-  margin: 0 auto;
-  background-color: #ebe7e3;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  text-align: center;
-  border-radius: 20px 20px 20px 20px;
-}
-
-.lemma-group1 {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-
-}
-
-.lemma-group2 {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  padding: 100px;
+  transform: translate(-50%, -50%);
+  background: #efe8df;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
 
 #lemmaFormGrammCat {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   max-block-size: 380px;
   padding: 15px 7px 10px;
   margin-bottom: 20px;
-  background-color: #d8dfd8;
-
+  background-color: #cbc5bd64;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .form-notes {
-  max-width: 380px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: medium;
+  width: 400px;
+  resize: none;
   padding: 15px 40px 45px;
-  margin: 0 auto;
-  background-color: #d8dfd8;
-
+  margin: auto;
+  background-color: #cbc5bd64;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px 20px 20px 20px;
 }
@@ -209,87 +197,106 @@ input[type=text], input[type=password] {
   text-align: center;
 }
 
-.chemail {
-  max-width: 400px;
-  padding: 15px 35px 10px;
-  margin: 0 auto;
-  background-color: #ebe7e3;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  text-align: center;
-  border-radius: 20px 20px 20px 20px;
+.list {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: larger;
+}
+
+.CADSbutton-search {
+  background-color: #CBC5BD;
+  display: inline-block;
+  padding: 6px;
+  border: #4f4f4f00;
+  border-radius: 3px;
+  transition: all 0.2s ease-in;
   position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
+  overflow: hidden;
+  margin: 0px;
+  color: #3B474B;
+  width: 8%;
+  box-shadow: 2px 2px 6px #242c2f;
 }
 
-.UIbutton {
-  padding: 0.6em 2em;
-  border: none;
-  outline: none;
-  color: rgb(255, 255, 255);
-  background: #3b8255;
-  cursor: pointer;
+.CADSbutton-search:hover {
+  background-color: #e1dbd2;
+}
+
+.CADSbutton-search:active {
   position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  top: 2px;
+  box-shadow: 2px 2px 20px #242c2f;
 }
 
-.UIbutton:before {
-  content: "";
-  background: linear-gradient(45deg,
-      #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
-      #00ffd5,
-      #002bff,
-      #7a00ff,
-      #ff00c8,
-      #ff0000);
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing-button-85 20s linear infinite;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
-
-@keyframes glowing-button-85 {
-  0% {
-    background-position: 0 0;
-  }
-
-  50% {
-    background-position: 400% 0;
-  }
-
-  100% {
-    background-position: 0 0;
-  }
-}
-
-.UIbutton:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
+table {
+  border: 1px solid #e1dbd2;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
   width: 100%;
-  height: 100%;
-  background: #457259;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
+  table-layout: fixed;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: larger;
 }
 
-.UIlist {
+table tr {
+  background-color: #d2cbc2;
+  border: 1px solid #e1dbd2;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
   text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
 }
