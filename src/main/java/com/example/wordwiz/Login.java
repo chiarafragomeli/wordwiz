@@ -20,37 +20,37 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/login")
 
 public class Login extends HttpServlet {
-	@Resource(name = "jdbc/wordwiz")
-	private DataSource ds;
+    @Resource(name = "jdbc/wordwiz")
+    private DataSource ds;
 
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String username = request.getParameter("user");
-		String password = request.getParameter("password");
-		
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String username = request.getParameter("user");
+        String password = request.getParameter("password");
+
 //		check for superUser
-		ServletContext sc = getServletContext();
-		String admin = (String) sc.getInitParameter("superUser");
-		String adminPassword = (String) sc.getInitParameter("superUserPassword");
-		if (username.equals(admin) && password.equals(adminPassword)) {
-		    User user = new User(0, admin, (String) sc.getInitParameter("superUserEmail"));
-		    HttpSession session = request.getSession();
+        ServletContext sc = getServletContext();
+        String admin = (String) sc.getInitParameter("superUser");
+        String adminPassword = (String) sc.getInitParameter("superUserPassword");
+        if (username.equals(admin) && password.equals(adminPassword)) {
+            User user = new User(0, admin, (String) sc.getInitParameter("superUserEmail"));
+            HttpSession session = request.getSession();
             session.setAttribute("user", user);
             request.getRequestDispatcher("adminDashboard.jsp").forward(request, response);
             return;
-		}
-		
-		LoginSvc svc = new LoginSvc(ds);
-		User user = svc.getUser(username, password);
-		if (user != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			request.getRequestDispatcher("dashboard.jsp").forward(request, response);
-		} else {
-			request.setAttribute("message", "Utente non riconosciuto");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}
-	}
+        }
+
+        LoginSvc svc = new LoginSvc(ds);
+
+        try (User user = svc.login(username, password)) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+        } catch (IllegalArgumentException e) {
+            request.setAttribute("message", e.getMessage());
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
+    }
 
 }

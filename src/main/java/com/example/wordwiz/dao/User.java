@@ -2,7 +2,7 @@ package com.example.wordwiz.dao;
 
 import java.util.Objects;
 
-public class User {
+public class User implements AutoCloseable{
 	private int id;
 	private String username;
 	private String email;
@@ -62,5 +62,10 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", email=" + email + "]";
 	}
+
+    @Override
+    public void close() {
+
+    }
 
 }
