@@ -20,10 +20,15 @@ public class UserDao implements AutoCloseable {
     private static final String UPDATE_EMAIL = """
             UPDATE users SET email = ?
             WHERE user_id = ?""";
-    
+
     private static final String UPDATE_PASSWORD = """
             UPDATE users SET password = ?
             WHERE user_id = ?""";
+
+    private static final String CHECK_PASSWORD = """
+            SELECT user_id, password
+            FROM users
+            WHERE user_id = ? AND password = ?""";
 
     private Connection connection;
 
@@ -66,24 +71,42 @@ public class UserDao implements AutoCloseable {
             throw new IllegalStateException(ex);
         }
     }
-    
+
     public boolean updateEmail(String email, int id) {
         try (PreparedStatement stmt = connection.prepareStatement(UPDATE_EMAIL)) {
             stmt.setString(1, email);
             stmt.setInt(2, id);
-            
+
             int count = stmt.executeUpdate();
             return count == 1;
         } catch (SQLException ex) {
             throw new IllegalStateException(ex);
         }
     }
-    
+
+    public boolean checkPassword(String password, int id) {
+        try (PreparedStatement stmt = connection.prepareStatement(CHECK_PASSWORD)) {
+            stmt.setInt(1, id);
+            stmt.setString(2, password);
+
+            ResultSet rs = stmt.executeQuery();
+
+            int count = 0;
+            while (rs.next()) {
+                count++;
+            }
+
+            return count == 1;
+        } catch (SQLException ex) {
+            throw new IllegalStateException(ex);
+        }
+    }
+
     public boolean updatePassword(String password, int id) {
         try (PreparedStatement stmt = connection.prepareStatement(UPDATE_PASSWORD)) {
             stmt.setString(1, password);
             stmt.setInt(2, id);
-            
+
             int count = stmt.executeUpdate();
             return count == 1;
         } catch (SQLException ex) {

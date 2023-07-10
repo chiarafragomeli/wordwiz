@@ -21,17 +21,28 @@
 				<div>
 					<p class="indexMessage" name="info"><strong>Username</strong>: ${user.username}</p>
 					<p class="indexMessage" name="info"><strong>Email</strong>: ${user.email}</p>
-					<form action="userinfo" method="get">
+					<form action="updateemail" method="get">
 						<div align="center">
 							<input name="newEmail" type="text" class="form-control" placeholder="New email">
 						</div>
 				</div>
 				<div align="center"><button class="myButton">UPDATE EMAIL</button></div>
 				</form>
+				<div>
+					<form action="updatepassword" method="post">
+						<div align="center">
+							<input name="oldPassword" type="password" class="form-control" placeholder="Old password">
+						</div>
+						<div align="center">
+							<input name="newPassword" type="password" class="form-control" placeholder="New password">
+						</div>
+				</div>
+				<div align="center"><button class="myButton">UPDATE PASSWORD</button></div>
+				</form>
 				<div class="button-container">
 					<a href="dashboard.jsp"><button class="CADSbutton">DASHBOARD</button></a>
 				</div>
 			</div>
 		</body>
-
+		
 		</html>

@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.sql.DataSource;
 
 import com.example.wordwiz.dao.User;
-import com.example.wordwiz.svc.LoginSvc;
 import com.example.wordwiz.svc.UpdateUserInfoSvc;
 
 import jakarta.annotation.Resource;
@@ -14,31 +13,26 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
-@WebServlet("/updateemail")
+@WebServlet("/updatepassword")
 
-public class UpdateEmail extends HttpServlet {
+public class UpdatePassword extends HttpServlet {
     @Resource(name = "jdbc/wordwiz")
     private DataSource ds;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String newEmail = request.getParameter("newEmail");
-        String username = request.getParameter("user");
+        String oldPassword = request.getParameter("oldPassword");
+        String newPassword = request.getParameter("newPassword");
         
-        LoginSvc loginSvc = new LoginSvc(ds);
         UpdateUserInfoSvc  updateSvc = new UpdateUserInfoSvc(ds);
         int id = ((User)request.getSession().getAttribute("user")).getId();
         
         try { 
-            if (updateSvc.updateEmail(newEmail, id)) {
-                User user = loginSvc.get(username, newEmail);
-                HttpSession session = request.getSession();
-                session.setAttribute("info", user);
-                request.setAttribute("message", "Email address changed.");
+            if (updateSvc.updatePassword(oldPassword, newPassword, id)) {
+                request.setAttribute("message", "Password changed.");
                 request.getRequestDispatcher("userinfo.jsp").forward(request, response);
         }
             
