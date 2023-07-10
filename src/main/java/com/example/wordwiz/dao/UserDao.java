@@ -20,6 +20,10 @@ public class UserDao implements AutoCloseable {
     private static final String UPDATE_EMAIL = """
             UPDATE users SET email = ?
             WHERE user_id = ?""";
+    
+    private static final String UPDATE_PASSWORD = """
+            UPDATE users SET password = ?
+            WHERE user_id = ?""";
 
     private Connection connection;
 
@@ -63,9 +67,21 @@ public class UserDao implements AutoCloseable {
         }
     }
     
-    public boolean update(String email, int id) {
+    public boolean updateEmail(String email, int id) {
         try (PreparedStatement stmt = connection.prepareStatement(UPDATE_EMAIL)) {
             stmt.setString(1, email);
+            stmt.setInt(2, id);
+            
+            int count = stmt.executeUpdate();
+            return count == 1;
+        } catch (SQLException ex) {
+            throw new IllegalStateException(ex);
+        }
+    }
+    
+    public boolean updatePassword(String password, int id) {
+        try (PreparedStatement stmt = connection.prepareStatement(UPDATE_PASSWORD)) {
+            stmt.setString(1, password);
             stmt.setInt(2, id);
             
             int count = stmt.executeUpdate();

@@ -19,8 +19,8 @@
 					</c:if>
 				</div>
 				<div>
-					<p class="indexMessage"><strong>Username</strong>: ${user.username}</p>
-					<p class="indexMessage"><strong>Email</strong>: ${user.email}</p>
+					<p class="indexMessage" name="info"><strong>Username</strong>: ${user.username}</p>
+					<p class="indexMessage" name="info"><strong>Email</strong>: ${user.email}</p>
 					<form action="userinfo" method="get">
 						<div align="center">
 							<input name="newEmail" type="text" class="form-control" placeholder="New email">

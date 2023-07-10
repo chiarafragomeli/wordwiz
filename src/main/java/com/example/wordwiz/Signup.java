@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import com.example.wordwiz.dao.User;
 import com.example.wordwiz.svc.LoginSvc;
+import com.example.wordwiz.svc.SignupSvc;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -21,23 +22,26 @@ import jakarta.servlet.http.HttpSession;
 public class Signup extends HttpServlet {
     @Resource(name = "jdbc/wordwiz")
     private DataSource ds;
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String username = request.getParameter("user");
         String email = request.getParameter("email");
-        String password = request.getParameter("password");    
-        LoginSvc svc = new LoginSvc(ds);
-        
-        if (svc.saveUser(username, email, password)) {
-            User user = svc.getUser(username, password);
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-            request.setAttribute("message", "Grazie per la tua registrazione " + username);
-            request.getRequestDispatcher("dashboard.jsp").forward(request, response);
-        } else {
-            request.setAttribute("message", "Registrazione fallita");
+        String password = request.getParameter("password");
+        LoginSvc loginSvc = new LoginSvc(ds);
+        SignupSvc signupSvc = new SignupSvc(ds);
+
+        try {
+            if (signupSvc.saveUser(username, email, password)) {
+                User user = loginSvc.get(username, password);
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user);
+                request.setAttribute("message", "Welcome " + username + "!");
+                request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+            }
+        } catch (IllegalArgumentException e) {
+            request.setAttribute("message", e.getMessage());
             request.getRequestDispatcher("signup.jsp").forward(request, response);
         }
     }

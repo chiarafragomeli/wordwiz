@@ -12,6 +12,12 @@ public class LoginSvc {
         this.ds = ds;
     }
 
+    public User get(String username, String password) {
+        try (UserDao dao = new UserDao(ds)) {
+            return dao.get(username, password);
+        }
+    }
+    
     public User login(String username, String password) {
         if (username == null || username.isEmpty()) {
             throw new IllegalArgumentException("Username cannot be empty!");
@@ -24,25 +30,6 @@ public class LoginSvc {
                 throw new IllegalArgumentException("Incorrect username or password!");
             }
             return user;
-        }
-    }
-
-    public boolean saveUser(String username, String email, String password) {
-        if (username == null || username.isBlank() || password == null || password.isBlank() || email == null
-                || email.isBlank()) {
-            return false;
-        }
-        try (UserDao dao = new UserDao(ds)) {
-            return dao.save(username, email, password);
-        }
-    }
-
-    public boolean updateUser(String email, int id) {
-        if (email == null || email.isBlank()) {
-            return false;
-        }
-        try (UserDao dao = new UserDao(ds)) {
-            return dao.update(email, id);
         }
     }
 }

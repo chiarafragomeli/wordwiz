@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import com.example.wordwiz.dao.User;
 import com.example.wordwiz.svc.LoginSvc;
+import com.example.wordwiz.svc.UpdateUserInfoSvc;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -28,17 +29,21 @@ public class UserInfo extends HttpServlet {
         String newEmail = request.getParameter("newEmail");
         String username = request.getParameter("user");
         
-        LoginSvc svc = new LoginSvc(ds);
+        LoginSvc loginSvc = new LoginSvc(ds);
+        UpdateUserInfoSvc  updateSvc = new UpdateUserInfoSvc(ds);
         int id = ((User)request.getSession().getAttribute("user")).getId();
         
-        if (svc.updateUser(newEmail, id)) {
-            User user = svc.getUser(username, newEmail);
-            HttpSession session = request.getSession();
-            session.setAttribute("email", user);
-            request.setAttribute("message", "Email modificata.");
-            request.getRequestDispatcher("userinfo.jsp").forward(request, response);
-        } else {
-            request.setAttribute("message", "Non è stato possibile modificare l'email.");
+        try { 
+            if (updateSvc.updateEmail(newEmail, id)) {
+                User user = loginSvc.get(username, newEmail);
+                HttpSession session = request.getSession();
+                session.setAttribute("info", user);
+                request.setAttribute("message", "Email address changed.");
+                request.getRequestDispatcher("userinfo.jsp").forward(request, response);
+        }
+            
+        } catch(IllegalArgumentException e) {
+            request.setAttribute("message", e.getMessage());
             request.getRequestDispatcher("userinfo.jsp").forward(request, response);
         }
     }
