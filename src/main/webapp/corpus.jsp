@@ -13,6 +13,9 @@
 				<div>
 					<h1 class="entry-title">CORPUS</h1>
 				</div>
+				<c:if test="${not empty message}">
+					<p class="indexMessage" align="center">${message}</p>
+				</c:if>
 				<form action="searchentry" method="get">
 						<input name="entry" type="text" placeholder="Search">
 						<button class="CADSbutton-search"><img src="img/searchicon.png" width="20"></button>

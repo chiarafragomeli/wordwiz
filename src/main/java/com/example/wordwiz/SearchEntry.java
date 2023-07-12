@@ -25,9 +25,15 @@ public class SearchEntry extends HttpServlet {
             throws ServletException, IOException {
         String entry = request.getParameter("entry");
         TextSvc svc = new TextSvc(ds);
-        List<Text> texts = svc.getEntry(entry);
-        
-        request.setAttribute("text", texts);
-        request.getRequestDispatcher("searchEntry.jsp").forward(request, response);
+        try {
+            List<Text> texts = svc.getEntry(entry);
+            request.setAttribute("text", texts);
+            request.getRequestDispatcher("searchEntry.jsp").forward(request, response);
+        } catch (IllegalArgumentException e) {
+            List<Text> texts = svc.getAllTexts();          
+            request.setAttribute("text", texts);
+            request.setAttribute("message", e.getMessage());
+            request.getRequestDispatcher("corpus.jsp").forward(request, response);
+        }
     }
 }

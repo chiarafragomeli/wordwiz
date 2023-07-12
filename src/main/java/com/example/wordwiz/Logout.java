@@ -10,7 +10,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 @WebServlet("/logout")
@@ -23,7 +22,7 @@ public class Logout extends HttpServlet {
         log.traceEntry();
 
         request.getSession().invalidate();
-        request.setAttribute("message", "Hai terminato la tua sessione.");
+        request.setAttribute("message", "Session ended.");
         request.getRequestDispatcher("logout.jsp").forward(request, response);
 
     }

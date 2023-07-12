@@ -13,7 +13,7 @@
         <div>
           <h1 class="entry-title">RESULTS</h1>
         </div>
-        <div class="container">
+        <div>
           <table class="table table-fixed">
             <thead>
               <tr>

@@ -24,8 +24,8 @@ public class TextDao implements AutoCloseable {
 
     private static final String GET_ENTRY = """
             SELECT text_id, fragment, author, title
-            from texts
-            where fragment like ? """;
+            FROM texts
+            WHERE fragment ~* ?""";
 
     private Connection connection;
 
@@ -79,7 +79,7 @@ public class TextDao implements AutoCloseable {
         List<Text> result = new ArrayList<>();
 
         try (PreparedStatement stmt = connection.prepareStatement(GET_ENTRY)) {
-            String pattern = "%" + entry + "%";
+            String pattern = "\\m" + entry + "\\M";
             stmt.setString(1, pattern);
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
